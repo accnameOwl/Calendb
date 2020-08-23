@@ -3,7 +3,7 @@ package main
 import (
 	json "encoding/json"
 	"fmt"
-	"github.com/accnameowl/calendb/src/auth"
+	"github.com/accnameowl/Calendb/auth"
 	"io/ioutil"
 	"net/http"
 	"os"
