@@ -1,4 +1,4 @@
-# ScheduleHorse
+# Calendb
 
 <p align="center">
     <img src="gopher_5.png" alt="gopher" width="250"/>  
@@ -13,6 +13,6 @@ The program then creates a database with the "databse/sql" module.
 N/A
 
 ## Installation
- `@ go get github/accnameowl/ScheduleHorse`
+ `@ go get github/accnameowl/Calendb`
 
 

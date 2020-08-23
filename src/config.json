@@ -1,0 +1,10 @@
+{
+    "token":   "QeHSqI7jLoVAvghkd0SF0ZJ03v1XT2XlfY4dpBLT",
+    "task": [
+        {
+            "apiKey": "?api_key=",
+            "feedtype": "?feedtype=json&ver=1.0"
+        }
+    ],
+    "url": "https://api.nasa.gov"
+}
