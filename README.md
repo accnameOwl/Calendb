@@ -1,7 +1,7 @@
 # ScheduleHorse
 
 <p align="center">
-    <img src="gopher_5.png" alt="gopher" width="250"/><br/>
+    <img src="gopher_5.png" alt="gopher" width="250"/>   
     Reads events from google calendar, and creates a database of it's values.
 </p>
 
