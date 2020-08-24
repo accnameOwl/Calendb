@@ -1,12 +1,9 @@
 package main
 
 import (
-	json "encoding/json"
 	"fmt"
+
 	"github.com/accnameowl/Calendb/auth"
-	"io/ioutil"
-	"net/http"
-	"os"
 )
 
 func init() {
@@ -14,15 +11,14 @@ func init() {
 
 func main() {
 
-	var authTest = AuthTest{
-		url:      "https://api.nasa.gov/planetary/apod",
-		token:    "?api_key=QeHSqI7jLoVAvghkd0SF0ZJ03v1XT2XlfY4dpBLT",
-		protocol: "tcp",
+	authTest := auth.Body{
+		URL:   "https://api.nasa.gov/planetary/apod",
+		Token: "?api_key=QeHSqI7jLoVAvghkd0SF0ZJ03v1XT2XlfY4dpBLT",
 	}
 
-	res, err := authTest.Dial()
+	res, err := authTest.ConnectToURL()
 	if err != nil {
-		log.Error(err)
+		panic(err)
 	}
-	fmt.Println("Successfully connected!")
+	fmt.Printf("Successfully connected!\nURL: %s\nAuth token: %s\nResponse Status: %s", authTest.URL, authTest.Token, res)
 }

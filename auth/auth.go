@@ -1,27 +1,27 @@
 package auth
 
 import (
-	"fmt"
-	"net"
+	"net/http"
 )
 
-// AuthTest ...
-type AuthTest struct {
-	url      string
-	token    string
-	protocol string
+// Body ...
+//
+// body of an authorization task
+type Body struct {
+	URL   string
+	Token string
 }
 
-// Dial ...
-func (at *AuthTest) Dial() (bool, error) {
-	conn, err := net.Dial(at.protocol, at.url+at.token)
+// ConnectToURL ...
+// Connects to *Body URL, with *Body Token as a task
+//
+// @return: Response Status, error
+func (auth *Body) ConnectToURL() (string, error) {
+	// Get response from Body.URL
+	response, err := http.Get(auth.URL + auth.Token)
 	if err != nil {
-		fmt.Printf("Could not successfully recieve connection from: %s\n\n", at.url)
-		fmt.Printf("auth token: %s+nprotocol%s\n", at.token, at.protocol)
-		return false, err
+		return response.Status, err
 	}
-	fmt.Printf("Successfully made connection to: %s\n", at.url)
-	fmt.Printf("auth token: %s+nprotocol%s\n", at.token, at.protocol)
-	fmt.Fprintf(conn, "GET / HTTP/1.0\r\n\r\n")
-	return true, nil
+	defer response.Body.Close()
+	return response.Status, nil
 }
